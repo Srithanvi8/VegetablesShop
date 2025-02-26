@@ -8,7 +8,6 @@ public class ShopDTO {
  private String lastname;
  private LocalDate dateofbirth;
 
- // Getters and Setters
  public Long getId() { return id; }
  public void setId(Long id) { this.id = id; }
  public String getFirstname() { return firstname; }
