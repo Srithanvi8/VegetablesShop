@@ -9,6 +9,7 @@ public class ShopEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "ID")
     private Long id;
 
     @Column(name = "Name", nullable = false)
@@ -34,6 +35,8 @@ public class ShopEntity {
 
     @Column(name = "ModifiedBy")
     private Integer modifiedBy;
+
+    // Getters and setters
 
     public Long getId() {
         return id;
