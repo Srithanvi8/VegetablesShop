@@ -1,6 +1,6 @@
-package org.form.shopservice.Model.dao;
+package org.form.shopservice.dao.repo;
 
-import org.form.shopservice.shopentity.ShopEntity;
+import org.form.shopservice.Model.ShopEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

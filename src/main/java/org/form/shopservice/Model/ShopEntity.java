@@ -1,4 +1,4 @@
-package org.form.shopservice.shopentity;
+package org.form.shopservice.Model;
 
 import jakarta.persistence.*;
 import java.time.LocalDate;

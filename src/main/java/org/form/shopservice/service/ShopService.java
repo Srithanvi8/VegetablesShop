@@ -1,9 +1,15 @@
 package org.form.shopservice.service;
 
-import org.form.shopservice.shopentity.ShopEntity;
+import org.form.shopservice.Model.ShopEntity;
+import org.form.shopservice.dto.response.GenericResponseDTO;
+
 import java.util.List;
 
 public interface ShopService {
-    List<ShopEntity> getAllShops();
+    /**
+     * comments are important
+     * @implSpec
+     * */
+    GenericResponseDTO<List<ShopEntity>> getAllShops();
     ShopEntity AddVegetables(ShopEntity shopEntity);
 }

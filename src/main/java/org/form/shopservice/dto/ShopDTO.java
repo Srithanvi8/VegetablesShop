@@ -1,7 +1,7 @@
-package org.form.shopservice.Model;
+package org.form.shopservice.dto;
 
 import java.time.LocalDate;
-
+//make use of Lombok annotations
 public class ShopDTO {
 
  private Long id;
