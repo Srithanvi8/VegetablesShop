@@ -18,4 +18,11 @@ public class ShopController {
     public List<ShopEntity> getAllShops() {
         return shopService.getAllShops();
     }
+
+    @PostMapping("/AddVeg")
+    public ShopEntity AddVegetables(@RequestBody ShopEntity shopEntity) {
+        return shopService.AddVegetables(shopEntity);
+    }
+
+
 }

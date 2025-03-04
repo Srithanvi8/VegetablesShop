@@ -5,5 +5,5 @@ import java.util.List;
 
 public interface ShopService {
     List<ShopEntity> getAllShops();
-
+    ShopEntity AddVegetables(ShopEntity shopEntity);
 }

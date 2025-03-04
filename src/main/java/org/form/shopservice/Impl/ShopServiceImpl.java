@@ -19,4 +19,9 @@ public class ShopServiceImpl implements ShopService {
     public List<ShopEntity> getAllShops() {
         return shopRepository.findAll();
     }
+
+    @Override
+    public ShopEntity AddVegetables(ShopEntity shopEntity) {
+        return shopRepository.save(shopEntity);
+    }
 }

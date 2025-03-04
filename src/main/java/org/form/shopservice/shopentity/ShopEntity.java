@@ -25,7 +25,7 @@ public class ShopEntity {
     private boolean isActive;
 
     @Column(name = "CreatedDate", nullable = false)
-    private LocalDate createdDate;
+    private LocalDate createdDate = LocalDate.now();
 
     @Column(name = "CreatedBy", nullable = false)
     private int createdBy;
@@ -35,8 +35,6 @@ public class ShopEntity {
 
     @Column(name = "ModifiedBy")
     private Integer modifiedBy;
-
-    // Getters and setters
 
     public Long getId() {
         return id;
