@@ -1,10 +1,22 @@
 package org.form.shopservice.Model;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Column;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.time.LocalDate;
 
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
-@Table(name = "Vegetables")
+@Table(name = "Vegetables", schema = "FMAP")
 public class ShopEntity {
 
     @Id
@@ -35,76 +47,4 @@ public class ShopEntity {
 
     @Column(name = "ModifiedBy")
     private Integer modifiedBy;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public LocalDate getMfgDate() {
-        return mfgDate;
-    }
-
-    public void setMfgDate(LocalDate mfgDate) {
-        this.mfgDate = mfgDate;
-    }
-
-    public LocalDate getExpiredDate() {
-        return expiredDate;
-    }
-
-    public void setExpiredDate(LocalDate expiredDate) {
-        this.expiredDate = expiredDate;
-    }
-
-    public boolean isActive() {
-        return isActive;
-    }
-
-    public void setActive(boolean active) {
-        isActive = active;
-    }
-
-    public LocalDate getCreatedDate() {
-        return createdDate;
-    }
-
-    public void setCreatedDate(LocalDate createdDate) {
-        this.createdDate = createdDate;
-    }
-
-    public int getCreatedBy() {
-        return createdBy;
-    }
-
-    public void setCreatedBy(int createdBy) {
-        this.createdBy = createdBy;
-    }
-
-    public LocalDate getModifiedDate() {
-        return modifiedDate;
-    }
-
-    public void setModifiedDate(LocalDate modifiedDate) {
-        this.modifiedDate = modifiedDate;
-    }
-
-    public Integer getModifiedBy() {
-        return modifiedBy;
-    }
-
-    public void setModifiedBy(Integer modifiedBy) {
-        this.modifiedBy = modifiedBy;
-    }
 }

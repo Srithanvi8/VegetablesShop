@@ -2,9 +2,9 @@ date: 4/3/2025
 1. java naming terminology violations
     package -model ?
     some method names
-2. don't use star imports
-3. controller layer url , consistency missing
-4. folder structure re-arranged please check
+2. don't use star imports --- done
+3. controller layer url , consistency missing --- done
+4. folder structure re-arranged please check  -- done
     controller
     model
     config
@@ -19,8 +19,8 @@ date: 4/3/2025
         impl
 5. Make use of lombok instead of writing more code-- refer generic response dto
     settings->plugins->marketplace->search lombok-> install-->restart
-    -->add corresponding dependencies
-6. need exception handling
+    -->add corresponding dependencies --- done
+6. need exception handling  --- done
 7. Response-- follow generic response
     each api response should be
     {
@@ -29,9 +29,10 @@ date: 4/3/2025
       "timestamp": "2025-03-05T00:01:00Z",
       "result": {}
     }
-    result will be actual data
+    result will be actual data  --- done
 8. comments missing-- refer java doc
-9. schema specification missing in table annotation
+9. schema specification missing in table annotation  --- done
 10. ** code is tight coupled--
     --response should be different class and entity should be different class
     --use mapper for data mapping(modelmapper)
+

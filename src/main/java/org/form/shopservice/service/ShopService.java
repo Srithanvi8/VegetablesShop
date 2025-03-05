@@ -11,5 +11,5 @@ public interface ShopService {
      * @implSpec
      * */
     GenericResponseDTO<List<ShopEntity>> getAllShops();
-    ShopEntity AddVegetables(ShopEntity shopEntity);
+    GenericResponseDTO<ShopEntity> addVegetables(ShopEntity shopEntity);
 }

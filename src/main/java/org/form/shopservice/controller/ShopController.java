@@ -4,7 +4,6 @@ import org.form.shopservice.dto.response.GenericResponseDTO;
 import org.form.shopservice.service.ShopService;
 import org.form.shopservice.Model.ShopEntity;
 import org.springframework.beans.factory.annotation.Autowired;
-//Star imports should not be used
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -28,12 +27,9 @@ public class ShopController {
     }
 
 
-    //java naming terminology violation
-    // consistency missing urls one is lowercase another one is camel case
-    @PostMapping("/AddVeg")
-    public ShopEntity AddVegetables(@RequestBody ShopEntity shopEntity) {
-        return shopService.AddVegetables(shopEntity);
+    @PostMapping("/addvegetables")
+    public GenericResponseDTO<ShopEntity> addVegetables(@RequestBody ShopEntity shopEntity) {
+        return shopService.addVegetables(shopEntity);
     }
-
 
 }

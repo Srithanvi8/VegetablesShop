@@ -27,11 +27,21 @@ public class ShopServiceImpl implements ShopService {
             response=new GenericResponseDTO<>(Boolean.TRUE,"data fetch",new Date(),details);
         }catch (Exception e){
             log.error(e.getMessage());
+            response = new GenericResponseDTO<>(Boolean.FALSE, "Failed to fetch data", new Date(), null);
         }
+        return response;
     }
 
     @Override
-    public ShopEntity AddVegetables(ShopEntity shopEntity) {
-        return shopRepository.save(shopEntity);
+    public GenericResponseDTO<ShopEntity> addVegetables(ShopEntity shopEntity) {
+        GenericResponseDTO<ShopEntity> response;
+        try {
+            ShopEntity savedEntity = shopRepository.save(shopEntity);
+            response = new GenericResponseDTO<>(Boolean.TRUE, "Vegetable added successfully", new Date(), savedEntity);
+        } catch (Exception e) {
+            log.error(e.getMessage());
+            response = new GenericResponseDTO<>(Boolean.FALSE, "Failed to add vegetables", new Date(), null);
+        }
+        return response;
     }
 }
