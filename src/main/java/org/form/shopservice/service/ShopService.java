@@ -13,5 +13,5 @@ public interface ShopService {
     GenericResponseDTO<List<ShopEntity>> getAllShops();
     GenericResponseDTO<ShopEntity> addVegetables(ShopEntity shopEntity);
     GenericResponseDTO<ShopEntity> editVegetables(Long id, ShopEntity shopEntity);
-
+    GenericResponseDTO<String> deleteVegetables(Long id);
 }

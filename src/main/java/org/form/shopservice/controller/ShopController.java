@@ -36,4 +36,10 @@ public class ShopController {
     public GenericResponseDTO<ShopEntity> editVegetables(@PathVariable Long id, @RequestBody ShopEntity shopEntity) {
         return shopService.editVegetables(id, shopEntity);
     }
+
+    @DeleteMapping("/deleteVegetables/{id}")
+    public GenericResponseDTO<String> deleteVegetables(@PathVariable Long id){
+        return shopService.deleteVegetables((id));
+    }
+
 }
