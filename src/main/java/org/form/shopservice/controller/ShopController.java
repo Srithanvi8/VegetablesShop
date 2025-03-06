@@ -32,4 +32,8 @@ public class ShopController {
         return shopService.addVegetables(shopEntity);
     }
 
+    @PutMapping("/editVegetables/{id}")
+    public GenericResponseDTO<ShopEntity> editVegetables(@PathVariable Long id, @RequestBody ShopEntity shopEntity) {
+        return shopService.editVegetables(id, shopEntity);
+    }
 }

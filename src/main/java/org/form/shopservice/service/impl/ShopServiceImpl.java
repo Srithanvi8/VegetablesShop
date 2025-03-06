@@ -8,6 +8,7 @@ import org.form.shopservice.Model.ShopEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -44,4 +45,24 @@ public class ShopServiceImpl implements ShopService {
         }
         return response;
     }
+
+    @Override
+    public GenericResponseDTO<ShopEntity> editVegetables(Long id, ShopEntity shopEntity) {
+        ShopEntity shopentity  = shopRepository.findById(id).orElse(null);
+
+        if (shopentity == null) {
+            return new GenericResponseDTO<>(false, "Vegetable not found", new Date(), null);
+        }
+
+        shopentity.setName(shopEntity.getName());
+        shopentity.setMfgDate(shopEntity.getMfgDate());
+        shopentity.setExpiredDate(shopEntity.getExpiredDate());
+        shopentity.setActive(shopEntity.isActive());
+        shopentity.setModifiedDate(LocalDate.now());
+        shopentity.setModifiedBy(shopEntity.getModifiedBy());
+
+        ShopEntity updatedEntity = shopRepository.save(shopentity);
+        return new GenericResponseDTO<>(true, "Vegetable updated successfully", new Date(), updatedEntity);
+    }
+
 }
