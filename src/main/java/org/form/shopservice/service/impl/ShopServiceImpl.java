@@ -65,6 +65,8 @@ public class ShopServiceImpl implements ShopService {
         return new GenericResponseDTO<>(true, "Vegetable updated successfully", new Date(), updatedEntity);
     }
 
+
+
     @Override
     public GenericResponseDTO<String> deleteVegetables(Long id) {
         if (!shopRepository.existsById(id)) {

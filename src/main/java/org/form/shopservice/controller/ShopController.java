@@ -1,5 +1,6 @@
 package org.form.shopservice.controller;
 
+import io.swagger.v3.oas.annotations.Operation;
 import org.form.shopservice.dto.response.GenericResponseDTO;
 import org.form.shopservice.service.ShopService;
 import org.form.shopservice.Model.ShopEntity;
@@ -20,7 +21,7 @@ public class ShopController {
 //    public List<ShopEntity> getAllShops() {
 //        return shopService.getAllShops();
 //    }
-
+    
     @GetMapping("/all")
     public GenericResponseDTO<List<ShopEntity>> getAllShop() {
         return shopService.getAllShops();
