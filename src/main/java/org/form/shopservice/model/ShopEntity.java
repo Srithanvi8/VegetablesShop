@@ -19,7 +19,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "Vegetables", schema = "FMAP")
+@Table(name = "Vegetables", schema = "dbo")
 public class ShopEntity {
 
     @Id
