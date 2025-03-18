@@ -1,24 +1,36 @@
 package org.form.shopservice.service.impl;
 
 import lombok.extern.slf4j.Slf4j;
-import org.form.shopservice.dto.response.GenericResponseDTO;
-import org.form.shopservice.service.ShopService;
 import org.form.shopservice.dao.repo.ShopRepository;
-import org.form.shopservice.Model.ShopEntity;
+import org.form.shopservice.dto.response.GenericResponseDTO;
+import org.form.shopservice.model.ShopEntity;
+import org.form.shopservice.service.ShopService;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
+
+/**
+ * Implements the business logic
+ */
 @Service
 @Slf4j
 public class ShopServiceImpl implements ShopService {
 
+    /**
+     * Adding repository to interact with databse
+     */
     @Autowired
     private ShopRepository shopRepository;
 
+    /**
+     * Using model mapper for mapping objects between DTOs and entities.
+     */
+    @Autowired
+    private ModelMapper modelMapper;
 
     @Override
     public GenericResponseDTO<List<ShopEntity>> getAllShops() {
@@ -47,24 +59,15 @@ public class ShopServiceImpl implements ShopService {
     }
 
     @Override
-    public GenericResponseDTO<ShopEntity> editVegetables(Long id, ShopEntity shopEntity) {
-        ShopEntity shopentity  = shopRepository.findById(id).orElse(null);
-
-        if (shopentity == null) {
+    public GenericResponseDTO<ShopEntity> editVegetables(ShopEntity shopEntity) {
+        ShopEntity storedShop   = shopRepository.findById(shopEntity.getId()).orElse(null);
+        if (storedShop  == null) {
             return new GenericResponseDTO<>(false, "Vegetable not found", new Date(), null);
         }
-
-        shopentity.setName(shopEntity.getName());
-        shopentity.setMfgDate(shopEntity.getMfgDate());
-        shopentity.setExpiredDate(shopEntity.getExpiredDate());
-        shopentity.setActive(shopEntity.isActive());
-        shopentity.setModifiedDate(LocalDate.now());
-        shopentity.setModifiedBy(shopEntity.getModifiedBy());
-
-        ShopEntity updatedEntity = shopRepository.save(shopentity);
+        storedShop  = modelMapper.map(shopEntity, ShopEntity.class);
+        ShopEntity updatedEntity = shopRepository.save(storedShop);
         return new GenericResponseDTO<>(true, "Vegetable updated successfully", new Date(), updatedEntity);
     }
-
 
 
     @Override
